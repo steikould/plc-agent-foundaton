@@ -1,0 +1,128 @@
+graph TB
+    subgraph "BUSINESS OBJECTIVES"
+        BO1["Reduce False Positives by 20-30%<br/>🎯 Accurate Anomaly Detection"]
+        BO2["Optimize Operations 15-25%<br/>🎯 Fuel Blending & Resource Allocation"]
+        BO3["Achieve $2-5M Annual Savings<br/>🎯 Predictive Maintenance & Power Optimization"]
+    end
+
+    subgraph "DATA FOUNDATION"
+        SILVER[BigQuery Silver<br/>Enriched Sensor Data]
+        GOLD[BigQuery Gold<br/>ML Features & Aggregations]
+        FEATURE_STORE[Vertex AI Feature Store<br/>Consistent ML Features]
+    end
+
+    subgraph "ML APPLICATION 1: Dynamic Thresholds"
+        DT_TRAIN[Vertex AI Training<br/>Time-Series Forecasting]
+        DT_MODEL[Dynamic Threshold Models ARIMA  Prophet LSTM]
+        DT_ENDPOINT[Vertex AI Endpoint<br/>Real-time Predictions]
+        DT_ALERT[Cloud Monitoring<br/>Adaptive Alerts]
+    end
+
+    subgraph "ML APPLICATION 2: Outlier Detection"
+        OD_TRAIN[Vertex AI Training<br/>Anomaly Detection]
+        OD_MODEL[Outlier Detection Models Isolation Forest  Autoencoders]
+        OD_ENDPOINT[Vertex AI Endpoint<br/>Anomaly Scoring]
+        OD_DASHBOARD[Looker Studio<br/>Security & Health Monitoring]
+    end
+
+    subgraph "ML APPLICATION 3: Fuel Blending Optimization"
+        FB_TRAIN[Vertex AI Training<br/>Optimization Models]
+        FB_MODEL[Blending Models Genetic Algorithm  Regression]
+        FB_SERVICE[Cloud Run<br/>Optimization Service]
+        FB_SCADA[SCADA Integration<br/>Automated Recommendations]
+    end
+
+    subgraph "ML APPLICATION 4: Resource Allocation"
+        RA_TRAIN[Vertex AI Training Forecasting & Routing]
+        RA_MODEL[Allocation Models Demand Forecasting  Route Optimization]
+        RA_SERVICE[Cloud Run<br/>Dispatch Optimization]
+        RA_DISPATCH[Maintenance Dispatch<br/>Crew & Equipment Scheduling]
+    end
+
+    subgraph "ML APPLICATION 5: A/B Testing"
+        AB_REGISTRY[Vertex AI Model Registry<br/>Version Management]
+        AB_ENDPOINT[Vertex AI Endpoint<br/>Traffic Splitting]
+        AB_MONITOR[Vertex AI Model Monitoring<br/>Performance Comparison]
+        AB_ANALYTICS[BigQuery Analytics<br/>Statistical Significance]
+    end
+
+    subgraph "ML APPLICATION 6: Foundation Models"
+        FM_PRETRAINED[Pre-trained Models<br/>Transformers  RL Agents]
+        FM_FINETUNE[Custom Fine-tuning<br/>Pipeline-specific Adaptation]
+        FM_DEPLOY[Vertex AI Endpoints<br/>Specialized Industrial Agents]
+        FM_FEEDBACK[Continuous Learning<br/>Domain Adaptation]
+    end
+
+    subgraph "BUSINESS VALUE DELIVERY"
+        BV1["Leak Detection Accuracy<br/>99.5% vs 85% Traditional"]
+        BV2["Blending Cost Reduction<br/>$1.5M Annual Savings"]
+        BV3["Maintenance Efficiency<br/>40% Reduction in Response Time"]
+        BV4["Power Optimization<br/>15% Energy Cost Reduction"]
+    end
+
+    SILVER --> DT_TRAIN
+    GOLD --> DT_TRAIN
+    FEATURE_STORE --> DT_TRAIN
+    DT_TRAIN --> DT_MODEL
+    DT_MODEL --> DT_ENDPOINT
+    DT_ENDPOINT --> DT_ALERT
+    
+    SILVER --> OD_TRAIN
+    GOLD --> OD_TRAIN
+    OD_TRAIN --> OD_MODEL
+    OD_MODEL --> OD_ENDPOINT
+    OD_ENDPOINT --> OD_DASHBOARD
+    
+    SILVER --> FB_TRAIN
+    GOLD --> FB_TRAIN
+    FB_TRAIN --> FB_MODEL
+    FB_MODEL --> FB_SERVICE
+    FB_SERVICE --> FB_SCADA
+    
+    SILVER --> RA_TRAIN
+    GOLD --> RA_TRAIN
+    RA_TRAIN --> RA_MODEL
+    RA_MODEL --> RA_SERVICE
+    RA_SERVICE --> RA_DISPATCH
+    
+    DT_MODEL --> AB_REGISTRY
+    OD_MODEL --> AB_REGISTRY
+    AB_REGISTRY --> AB_ENDPOINT
+    AB_ENDPOINT --> AB_MONITOR
+    AB_MONITOR --> AB_ANALYTICS
+    
+    FM_PRETRAINED --> FM_FINETUNE
+    SILVER --> FM_FINETUNE
+    FM_FINETUNE --> FM_DEPLOY
+    FM_DEPLOY --> FM_FEEDBACK
+    
+    DT_ALERT --> BV1
+    OD_DASHBOARD --> BV1
+    FB_SCADA --> BV2
+    RA_DISPATCH --> BV3
+    FM_DEPLOY --> BV4
+    
+    BO1 --> BV1
+    BO2 --> BV2
+    BO2 --> BV3
+    BO3 --> BV4
+
+    classDef business fill:#e1f5fe,stroke:#0277bd,stroke-width:2px
+    classDef data fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef ml1 fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    classDef ml2 fill:#ffebee,stroke:#c62828,stroke-width:2px
+    classDef ml3 fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
+    classDef ml4 fill:#fff8e1,stroke:#f57f17,stroke-width:2px
+    classDef ml5 fill:#fce4ec,stroke:#ad1457,stroke-width:2px
+    classDef ml6 fill:#e0f2f1,stroke:#00695c,stroke-width:2px
+    classDef value fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
+    
+    class BO1,BO2,BO3 business
+    class SILVER,GOLD,FEATURE_STORE data
+    class DT_TRAIN,DT_MODEL,DT_ENDPOINT,DT_ALERT ml1
+    class OD_TRAIN,OD_MODEL,OD_ENDPOINT,OD_DASHBOARD ml2
+    class FB_TRAIN,FB_MODEL,FB_SERVICE,FB_SCADA ml3
+    class RA_TRAIN,RA_MODEL,RA_SERVICE,RA_DISPATCH ml4
+    class AB_REGISTRY,AB_ENDPOINT,AB_MONITOR,AB_ANALYTICS ml5
+    class FM_PRETRAINED,FM_FINETUNE,FM_DEPLOY,FM_FEEDBACK ml6
+    class BV1,BV2,BV3,BV4 value

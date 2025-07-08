@@ -1,0 +1,75 @@
+graph TB
+    subgraph "BUSINESS OBJECTIVES"
+        BO1["Establish Production-Ready Data Pipeline<br/>🎯 99.9% Uptime | <5min Latency"]
+        BO2["Enable Advanced Analytics & ML<br/>🎯 Single Source of Truth"]
+        BO3["Regulatory Compliance & Security<br/>🎯 CMEK Encryption | IAM Controls"]
+    end
+
+    subgraph "BRONZE LAYER - Raw Data Ingestion"
+        PI[PI System<br/>5k+ Miles Pipeline]
+        LITMUS[Litmus Edge Gateway<br/>Data Collection]
+        PUBSUB[Pub/Sub<br/>Real-time Streaming]
+        STORAGE[Cloud Storage<br/>Raw Data Landing]
+        DATAFLOW1[Dataflow<br/>Schema Validation]
+        BQ_BRONZE[BigQuery Bronze<br/>Immutable Raw Records]
+    end
+
+    subgraph "SILVER LAYER - Enriched & Curated"
+        META_STORE[Metadata Store Equipment Segments Sensors]
+        DATAFLOW2[Dataflow<br/>Real-time Enrichment]
+        DATAFORM[Dataform<br/>SQL Transformations]
+        BQ_SILVER[BigQuery Silver<br/>Contextualized Data]
+        COMPOSER[Cloud Composer<br/>Orchestration]
+    end
+
+    subgraph "GOLD LAYER - Business Ready"
+        DATAFORM2[Dataform<br/>Aggregations & Features]
+        BQ_GOLD[BigQuery Gold<br/>Executive Dashboards]
+        FEATURE_STORE[Vertex AI Feature Store<br/>ML Ready Features]
+        LOOKER[Looker Studio<br/>Business Intelligence]
+    end
+
+    subgraph "BUSINESS VALUE DELIVERY"
+        BV1["$500K+ Annual Cost Savings<br/>Reduced Downtime"]
+        BV2["Real-time Operational Visibility<br/>Executive Dashboards"]
+        BV3["ML Foundation Platform<br/>Advanced Analytics Ready"]
+    end
+
+    PI --> LITMUS
+    LITMUS --> PUBSUB
+    PUBSUB --> STORAGE
+    PUBSUB --> DATAFLOW1
+    DATAFLOW1 --> BQ_BRONZE
+    
+    BQ_BRONZE --> DATAFLOW2
+    META_STORE --> DATAFLOW2
+    DATAFLOW2 --> BQ_SILVER
+    BQ_BRONZE --> DATAFORM
+    DATAFORM --> BQ_SILVER
+    COMPOSER --> DATAFORM
+    
+    BQ_SILVER --> DATAFORM2
+    DATAFORM2 --> BQ_GOLD
+    BQ_GOLD --> FEATURE_STORE
+    BQ_GOLD --> LOOKER
+    COMPOSER --> DATAFORM2
+    
+    BQ_BRONZE --> BV1
+    BQ_SILVER --> BV2
+    BQ_GOLD --> BV3
+    
+    BO1 --> BQ_BRONZE
+    BO2 --> BQ_SILVER
+    BO3 --> BQ_GOLD
+
+    classDef business fill:#e1f5fe,stroke:#0277bd,stroke-width:2px
+    classDef bronze fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    classDef silver fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef gold fill:#fff8e1,stroke:#f57f17,stroke-width:2px
+    classDef value fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
+    
+    class BO1,BO2,BO3 business
+    class PI,LITMUS,PUBSUB,STORAGE,DATAFLOW1,BQ_BRONZE bronze
+    class META_STORE,DATAFLOW2,DATAFORM,BQ_SILVER,COMPOSER silver
+    class DATAFORM2,BQ_GOLD,FEATURE_STORE,LOOKER gold
+    class BV1,BV2,BV3 value
