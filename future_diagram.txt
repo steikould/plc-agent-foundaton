@@ -1,0 +1,104 @@
+graph TB
+    subgraph "BUSINESS OBJECTIVES"
+        BO1["Achieve 40-60% Overall Efficiency<br/>🎯 Full Pipeline Optimization"]
+        BO2["Enable Autonomous Operations<br/>🎯 Self-Healing & Self-Optimizing"]
+        BO3["Complete Digital Twin Platform<br/>🎯 Real-time Simulation & Prediction"]
+    end
+
+    subgraph "SPECIALIZED INDUSTRIAL AGENTS"
+        PUMP_AGENT[Pump Power<br/>Optimization Agent]
+        LEAK_AGENT[Leak Detection<br/>& Response Agent]
+        BLEND_AGENT[Fuel Blending<br/>Optimization Agent]
+        MAINT_AGENT[Predictive Maintenance<br/>Scheduling Agent]
+        SECURITY_AGENT[Cybersecurity<br/>Monitoring Agent]
+        STAT_AGENT[Statistical Analysis<br/>& Reporting Agent]
+    end
+
+    subgraph "ORCHESTRATION LAYER"
+        JUDGE_AGENT[Judge Agent<br/>Decision Coordination]
+        COMM_PROTOCOL[Inter-Agent<br/>Communication Protocol]
+        CONFLICT_RES[Conflict Resolution<br/>& Priority Management]
+        MASTER_CONTROLLER[Master Controller<br/>System-wide Coordination]
+    end
+
+    subgraph "DIGITAL TWIN PLATFORM"
+        PHYSICS_MODEL[Physics-Informed<br/>Neural Networks]
+        REAL_TIME_SIM[Real-time<br/>Pipeline Simulation]
+        SCENARIO_PLAN[Scenario Planning<br/>& What-If Analysis]
+        PREDICTIVE_SIM[Predictive<br/>Simulation Engine]
+    end
+
+    subgraph "SECURITY & GOVERNANCE"
+        AGENT_AUTH[Agent Authentication<br/>& Authorization]
+        AUDIT_LOG[Agent Decision<br/>Audit Trail]
+        SAFETY_OVERRIDE[Safety Override<br/>& Human Intervention]
+        COMPLIANCE[Regulatory Compliance<br/>& Reporting]
+    end
+
+    subgraph "PLC & SCADA INTEGRATION"
+        SECURE_GATEWAY[Secure Gateway<br/>AI-to-PLC Interface]
+        COMMAND_VALIDATION[Command Validation<br/>& Safety Checks]
+        REAL_TIME_CONTROL[Real-time Control<br/>System Integration]
+        HUMAN_LOOP[Human-in-the-Loop<br/>Critical Decisions]
+    end
+
+    subgraph "BUSINESS VALUE DELIVERY"
+        BV1["$10M+ Annual Savings<br/>Fully Optimized Operations"]
+        BV2["99.9% Uptime<br/>Autonomous Self-Healing"]
+        BV3["50% Reduced Response Time<br/>Predictive Issue Resolution"]
+        BV4["Zero Unplanned Downtime<br/>Predictive Maintenance"]
+    end
+
+    PUMP_AGENT --> JUDGE_AGENT
+    LEAK_AGENT --> JUDGE_AGENT
+    BLEND_AGENT --> JUDGE_AGENT
+    MAINT_AGENT --> JUDGE_AGENT
+    SECURITY_AGENT --> JUDGE_AGENT
+    STAT_AGENT --> JUDGE_AGENT
+    
+    JUDGE_AGENT --> COMM_PROTOCOL
+    COMM_PROTOCOL --> CONFLICT_RES
+    CONFLICT_RES --> MASTER_CONTROLLER
+    
+    MASTER_CONTROLLER --> PHYSICS_MODEL
+    PHYSICS_MODEL --> REAL_TIME_SIM
+    REAL_TIME_SIM --> SCENARIO_PLAN
+    SCENARIO_PLAN --> PREDICTIVE_SIM
+    
+    MASTER_CONTROLLER --> AGENT_AUTH
+    AGENT_AUTH --> AUDIT_LOG
+    AUDIT_LOG --> SAFETY_OVERRIDE
+    SAFETY_OVERRIDE --> COMPLIANCE
+    
+    MASTER_CONTROLLER --> SECURE_GATEWAY
+    SECURE_GATEWAY --> COMMAND_VALIDATION
+    COMMAND_VALIDATION --> REAL_TIME_CONTROL
+    REAL_TIME_CONTROL --> HUMAN_LOOP
+    
+    PUMP_AGENT --> BV1
+    LEAK_AGENT --> BV2
+    BLEND_AGENT --> BV1
+    MAINT_AGENT --> BV3
+    SECURITY_AGENT --> BV2
+    PREDICTIVE_SIM --> BV4
+    
+    BO1 --> BV1
+    BO2 --> BV2
+    BO2 --> BV3
+    BO3 --> BV4
+
+    classDef business fill:#e1f5fe,stroke:#0277bd,stroke-width:2px
+    classDef agents fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    classDef orchestration fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef digital_twin fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
+    classDef security fill:#ffebee,stroke:#c62828,stroke-width:2px
+    classDef plc fill:#fff8e1,stroke:#f57f17,stroke-width:2px
+    classDef value fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
+    
+    class BO1,BO2,BO3 business
+    class PUMP_AGENT,LEAK_AGENT,BLEND_AGENT,MAINT_AGENT,SECURITY_AGENT,STAT_AGENT agents
+    class JUDGE_AGENT,COMM_PROTOCOL,CONFLICT_RES,MASTER_CONTROLLER orchestration
+    class PHYSICS_MODEL,REAL_TIME_SIM,SCENARIO_PLAN,PREDICTIVE_SIM digital_twin
+    class AGENT_AUTH,AUDIT_LOG,SAFETY_OVERRIDE,COMPLIANCE security
+    class SECURE_GATEWAY,COMMAND_VALIDATION,REAL_TIME_CONTROL,HUMAN_LOOP plc
+    class BV1,BV2,BV3,BV4 value
